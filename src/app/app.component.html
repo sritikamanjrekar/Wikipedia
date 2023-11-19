@@ -1,0 +1,22 @@
+<div class="ui raised very padded text  segment" style="margin-top: 5%;">
+
+
+	<div class="ui four column grid">
+		<div class="row">
+
+			<img class="" src="assets/images/wikipedia.png" alt="" height="50" width="50" style="margin-right:2% ;margin-top: 2%;">
+
+
+			<h3 class="">Wikipedia | <span style="font-size: 75%;">The Free Encyclopedia</span></h3>
+
+
+		</div>
+
+	</div>
+
+	<app-search-bar (transmitter)="onSearch($event)"></app-search-bar>
+	<app-page-list [pageListy]="pages"></app-page-list>
+
+
+
+</div>
