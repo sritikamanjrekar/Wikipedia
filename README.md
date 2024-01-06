@@ -1,27 +1,66 @@
 # Wikipedia
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+09:38 05-11-2023
 
-## Development server
+accordingly or app architechture
+	>>generate service name apnepedia using angular cli
+		ng g service apnapedia
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+	>>import HttpClientModule in app.module.ts to consume api's on angular app
+		import { HttpClientModule} from '@angular/common/http';
+		
+		imports: [
 
-## Code scaffolding
+		    BrowserModule,
+		    HttpClientModule
+		  ],
+	>>Inject HttpClient in apnapediaService class into constructor as parameter
+		constructor(private http: HttpClient)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+	>>Create a method on apnapediaService to consume wikiSearch api
+		onSearch(term: string){
+		return this.http.get(arg1,arg2); //to get args, visit: https://writexo.com/rst-angular
+		
+		}
 
-## Build
+	>> now call method onSearch() from App Component class
+		1. Inject apnapediaService on 
+			constructor(private ap:ApnapediaService){}
+		2. this.ap.onSearch(term).subscribe(vada => console.log()); 
+ '=>' aage jake kya karna hai  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+________________________________________________________________________________
+Project6: Apnapedia API endpoint
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+arg1:
 
-## Further help
+'https://en.wikipedia.org/w/api.phpmkm'
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+arg2:
+
+{
+
+  params: {
+
+  action: 'query',
+
+  format: 'json',
+
+  list: 'search',
+
+  utf8: '1',
+
+  srsearch: term, 
+
+  origin: '*'
+
+  }
+
+}
+
+![Wikipedia architecting](https://github.com/sritikamanjrekar/Wikipedia/assets/59335693/8c8a45a7-7553-4aa8-ae50-a7d335ea4e89)
+
+            
